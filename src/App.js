@@ -17,6 +17,7 @@ const searchClient = algoliasearch(
 const currencies = {
   USD: '$',
   GBP: '£',
+  EUR: '€',
 };
 
 class App extends Component {
@@ -37,19 +38,22 @@ class App extends Component {
 const SearchContainer = () => {
   const [currency, setCurrency] = useState();
 
+  // Check if there's a preferred currency before defaulting to USD
   useEffect(() => {
     setCurrency(localStorage.getItem('currency') || 'USD');
   }, [])
 
+  // Presist selected currency across page sessions
   useEffect(() => {
     localStorage.setItem('currency', currency);
   }, [currency]);
 
   const CurrencyDropdown = () => {
     return (
-      <div className="currency-select">
+      <div className="currency-dropdown">
         <select
           name="currency"
+          className="dropdown"
           value={currency}
           onChange={e => setCurrency(e.target.value)}
         >
@@ -66,8 +70,10 @@ const SearchContainer = () => {
       <InstantSearch searchClient={searchClient} indexName="demo_ecommerce">
         <div className="search-panel">
           <div className="search-panel__results">
-            <SearchBox className="searchbox" />
-            <CurrencyDropdown />
+            <div style={{ display: 'flex' }}>
+              <SearchBox className="searchbox" />
+              <CurrencyDropdown />
+            </div>
             <Hits
               hitComponent={props => (
                 <Hit currencySymbol={currencies[currency]} {...props} />

@@ -23,11 +23,6 @@ em {
   font-weight: normal;
 }
 
-.header-title::after {
-  content: ' ▸ ';
-  padding: 0 0.5rem;
-}
-
 .header-subtitle {
   font-size: 1.2rem;
 }
@@ -52,9 +47,28 @@ em {
 
 .searchbox {
   margin-bottom: 2rem;
+  margin-right: 1rem;
+  flex-basis: 100%;
 }
 
 .pagination {
   margin: 2rem auto;
   text-align: center;
+}
+
+.currency-dropdown {
+  flex: 50px;
+}
+
+.dropdown {
+  padding: .3rem 1.7rem;
+  background-color: #fff;
+  border: 1px solid #c4c8d8;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .ais-Hits-item {
+    width: calc(50% - 1rem);
+  }
 }
