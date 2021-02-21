@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './hit.css';
 
-const Hit = ({ hit }) => {
+const Hit = ({ hit, currencySymbol }) => {
   return (
-    <div class='hit-container'>
-      <div className='hit-image'>
-        <img src={hit.image} />
+    <div className="hit-container">
+      <div className="hit-image">
+        <img src={hit.image} alt="Product" />
       </div>
-      <div className='hit-title'>{hit.name}</div>
-      <div className='hit-price'>{hit.price}</div>
+      <div className="hit-title">{hit.name}</div>
+      <div className="hit-price">{`${currencySymbol}${hit.price}`}</div>
     </div>
   );
 };
