@@ -1,0 +1,12 @@
+.hit-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.hit-title {}
+
+.hit-price {}
+
+.hit-image {
+    grid-row: 1 / 3;
+}

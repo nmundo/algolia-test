@@ -5,9 +5,8 @@ import {
   Hits,
   SearchBox,
   Pagination,
-  Highlight,
 } from 'react-instantsearch-dom';
-import PropTypes from 'prop-types';
+import Hit from './components/Hit';
 import './App.css';
 
 const searchClient = algoliasearch(
@@ -54,19 +53,5 @@ class App extends Component {
     );
   }
 }
-
-function Hit(props) {
-  return (
-    <article>
-      <h1>
-        <Highlight attribute="name" hit={props.hit} />
-      </h1>
-    </article>
-  );
-}
-
-Hit.propTypes = {
-  hit: PropTypes.object.isRequired,
-};
 
 export default App;
